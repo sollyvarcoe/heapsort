@@ -11,7 +11,5 @@ public class main {
 		testHeap.addElement(2);
 		System.out.println(testHeap.toString());
 		System.out.println(testHeap.getHeapLast());
-		testHeap.heapSort();
-
 	}
 }

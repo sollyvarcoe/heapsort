@@ -5,11 +5,11 @@ import static org.junit.Assert.assertNotNull;
 public class Heap <E extends Comparable<E>> {
 	private Object heapArray[];
 	private int heapLast;
-
 	private int heapSize;
 	
 	
-	public Heap(int heapSize) {
+	public Heap(int heapSize) throws Exception {
+		if (heapSize <= 0) throw new Exception("Heap must be of size 1 or greater");
 		this.heapSize = heapSize;
 		heapArray = new Object[heapSize + 1];
 		heapLast = 0;
@@ -102,7 +102,7 @@ public class Heap <E extends Comparable<E>> {
         return s + "]";
 	}
 	
-	public void heapSort() throws Exception {
+	public Object[] heapSort() throws Exception {
 		Object sorted[] = new Object[heapLast];
 		
 		int i = 0;
@@ -115,11 +115,16 @@ public class Heap <E extends Comparable<E>> {
 		for (Object obj : sorted) {
 			System.out.println(obj);
 		}
+		return sorted;
 		
 	}
 
 	public int getHeapLast() {
 		return heapLast;
+	}
+	
+	public int getHeapSize() {
+		return heapSize;
 	}
 }
 
